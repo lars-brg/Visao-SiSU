@@ -1,0 +1,21 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Modalidade {
+  modadalidadeID String @id @default(uuid())
+  universidade   String
+  campus         String
+  nome_Curso     String
+  nota_Corte     Float
+
+  @@map("modalidade")
+}
